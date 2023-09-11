@@ -28,12 +28,13 @@
     {% endblock %} -->
     <form method="post" action="">
         {% csrf_token %}
-        <table>
-            <input type="text" name = plate>
-            <input type="text" name = location>
-            <input type="text" name = company>
-        </table>
-        <input type="submit" value="제출">
+        {{ form.as_table }}
+        <!-- <table>
+            <input type="text" name = "plate">
+            <input type="text" name = "location">
+            <input type="text" name = "company">
+        </table> -->
+        <button type="submit">submit</button>
     </form>
 </body>
 </html>
