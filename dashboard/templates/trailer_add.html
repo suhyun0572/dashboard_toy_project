@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trailer_add</title>
+</head>
+<body>
+
+    <!-- {% block content %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="plate">plate number</label>
+                <input type="text" name="plate" id="plate">
+            </div>
+            <div>
+                <label for="location">location</label>
+                <input type="text" name="location" id="location">
+            </div>
+            <div>
+                <label for="company_name">company</label>
+                <input type="text" name="company" id="company_name">
+            </div>
+
+            <input type="submit" value="add"/>
+        </form>
+    {% endblock %} -->
+    <form method="post" action="">
+        {% csrf_token %}
+        <table>
+            <input type="text" name = plate>
+            <input type="text" name = location>
+            <input type="text" name = company>
+        </table>
+        <input type="submit" value="제출">
+    </form>
+</body>
+</html>
