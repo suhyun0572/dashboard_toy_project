@@ -36,5 +36,29 @@
         </table> -->
         <button type="submit">submit</button>
     </form>
+
+    <br>
+    <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>plate</th>
+                <th>location</th>
+                <th>company</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                {% for item in items %}
+                <td>{{ item.plate }}</td>
+                <td>{{ item.location }}</td>
+                <td>{{ item.company }}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+
+    </table>
 </body>
 </html>
