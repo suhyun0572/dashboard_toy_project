@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import TrailerForm
-
+from .models import trailers
 # Create your views here.
 
 
 def test(request):
-    return render(request,'chart.html',{'test':123})
+    datas = trailers.objects.first()
+    return render(request,'chart.html',{'test':datas})
 
 def trailerAdd(request):
     print("------------------------")
@@ -16,11 +17,12 @@ def trailerAdd(request):
         if form.is_valid():
             print("this is form :" )
             print(form.cleaned_data)
-            # form.save()
+            form.save()
             return redirect('test')
         else:
             print('not valid')
             return redirect('test')
     else:
         form = TrailerForm()
-        return render(request, 'trailer_add.html', {'form':form})
+        datas = trailers.objects.all()
+        return render(request, 'trailer_add.html', {'form':form, 'items':datas})
