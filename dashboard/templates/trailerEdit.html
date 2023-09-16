@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit</title>
+</head>
+<body>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        <label for="plate">plate</label>
+        <input type="text" id="plate" name="plate" value="{{ items.plate }}">
+        <br>
+        <label for="location">location</label>
+        <input type="text" id="location" name="location" value="{{ items.location }}">
+        <br>
+        <label for="company">company</label>
+        <input type="text" id="company" name="company" value="{{ items.company }}">
+        <button type="submit">submit</button>
+    </form>
+
+
+</body>
+</html>

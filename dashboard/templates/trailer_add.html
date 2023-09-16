@@ -41,23 +41,26 @@
     <br>
 
     <table>
-        <thead>
-            <tr>
-                <th>plate</th>
-                <th>location</th>
-                <th>company</th>
-            </tr>
-        </thead>
+        <tr>
+            <th>plate</th>
+            <th>location</th>
+            <th>company</th>
 
-        <tbody>
+            {% for item in items %}
             <tr>
-                {% for item in items %}
                 <td>{{ item.plate }}</td>
                 <td>{{ item.location }}</td>
                 <td>{{ item.company }}</td>
-                {% endfor %}
+                <td>
+                    <a href="{% url 'trailerDelete' item.plate %}">delete</a>
+                </td>
+                <td>
+                    <a href="{% url 'trailerEdit' item.plate %}">edit</a>
+                </td>
             </tr>
-        </tbody>
+            {% endfor %}
+        </tr>
+        
 
     </table>
 </body>

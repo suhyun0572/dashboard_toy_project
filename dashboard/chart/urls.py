@@ -21,4 +21,6 @@ from . import views
 urlpatterns = [
     path("",views.test, name='test'),
     path("create/",views.trailerAdd, name='trailerAdd'),
+    path("trailerDelete/<str:plate>",views.trailerDelete,name='trailerDelete'),
+    path("trailerEdit/<str:plate>",views.trailerEdit,name="trailerEdit"),
 ]
