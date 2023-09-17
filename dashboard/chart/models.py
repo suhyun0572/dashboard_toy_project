@@ -7,4 +7,8 @@ class trailers(models.Model) :
     location = models.CharField(max_length=8)
     company = models.CharField(max_length=15)
 
+class trailerLocation(models.Model):
+    date = models.DateField()
+    class Meta:
+        ordering = ('date',)
     
