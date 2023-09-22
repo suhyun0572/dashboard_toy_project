@@ -7,8 +7,12 @@ class trailers(models.Model) :
     location = models.CharField(max_length=8)
     company = models.CharField(max_length=15)
 
-class trailerLocation(models.Model):
-    date = models.DateField()
-    class Meta:
-        ordering = ('date',)
-    
+class yardInfo(models.Model):
+
+    saveDate = models.DateField(auto_now_add=True)
+    editDate = models.DateField(auto_now=True)
+    status = models.CharField(max_length=5)
+    partDesc = models.CharField(max_length=50)
+    plate = models.ForeignKey(trailers,on_delete=models.CASCADE)
+
+
