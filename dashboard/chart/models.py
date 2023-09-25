@@ -13,6 +13,6 @@ class yardInfo(models.Model):
     editDate = models.DateField(auto_now=True)
     status = models.CharField(max_length=5)
     partDesc = models.CharField(max_length=50)
-    plate = models.ForeignKey(trailers,on_delete=models.CASCADE)
+    plate = models.CharField(max_length=8)
 
 

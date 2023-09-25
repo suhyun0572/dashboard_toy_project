@@ -4,9 +4,9 @@ from .models import trailers
 # Create your views here.
 
 
-def test(request):
+def index(request):
     datas = trailers.objects.first()
-    return render(request,'chart.html',{'test':datas})
+    return render(request,'index.html',{'test':datas})
 
 def trailerAdd(request):
     print("------------------------")
@@ -18,10 +18,10 @@ def trailerAdd(request):
             print("this is form :" )
             print(form.cleaned_data)
             form.save()
-            return redirect('test')
+            return redirect('trailerInfo')
         else:
             print('not valid')
-            return redirect('test')
+            return redirect('trailerInfo')
     else:
         form = TrailerForm()
         datas = trailers.objects.all()
@@ -30,7 +30,7 @@ def trailerAdd(request):
 def trailerDelete(request,plate):
     delete_obj = trailers.objects.get(plate=plate)
     delete_obj.delete()
-    return redirect('trailerAdd')
+    return redirect('trailerInfo')
 
 def trailerEdit(request,plate):
     change = get_object_or_404(trailers,plate=plate)
@@ -51,3 +51,7 @@ def trailerEdit(request,plate):
         item = trailers.objects.get(plate=plate)
         return render(request,'trailerEdit.html',{'items' : item})
     
+
+def trailerInfo(request):
+    item = trailers.objects.all()
+    return render(request,'trailerInfo.html',{'items':item})
