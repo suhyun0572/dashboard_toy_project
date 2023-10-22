@@ -52,10 +52,10 @@
                 <td>{{ item.location }}</td>
                 <td>{{ item.company }}</td>
                 <td>
-                    <a href="{% url 'trailerDelete' item.plate %}">delete</a>
+                    <a href="{% url 'chart:trailerDelete' item.plate %}">delete</a>
                 </td>
                 <td>
-                    <a href="{% url 'trailerEdit' item.plate %}">edit</a>
+                    <a href="{% url 'chart:trailerEdit' item.plate %}">edit</a>
                 </td>
             </tr>
             {% endfor %}

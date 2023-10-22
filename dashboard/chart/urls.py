@@ -18,8 +18,10 @@ Including another URLconf
 from django.urls import path, include
 from . import views
 
+app_name = 'chart'
+
 urlpatterns = [
-    path("",views.test, name='test'),
+    path("",views.home, name='home'),
     path("create/",views.trailerAdd, name='trailerAdd'),
     path("trailerDelete/<str:plate>",views.trailerDelete,name='trailerDelete'),
     path("trailerEdit/<str:plate>",views.trailerEdit,name="trailerEdit"),

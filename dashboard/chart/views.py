@@ -4,9 +4,9 @@ from .models import trailers
 # Create your views here.
 
 
-def test(request):
+def home(request):
     datas = trailers.objects.first()
-    return render(request,'chart.html',{'test':datas})
+    return render(request,'chart/index.html',{'test':datas})
 
 def trailerAdd(request):
     print("------------------------")
@@ -18,19 +18,21 @@ def trailerAdd(request):
             print("this is form :" )
             print(form.cleaned_data)
             form.save()
-            return redirect('test')
+            print("------------------------------------------------------" )
+            # return render(request,'chart:trailerAdd')
+            return redirect('chart:trailerAdd')
         else:
             print('not valid')
-            return redirect('test')
+            return redirect('chart:trailerAdd')
     else:
         form = TrailerForm()
         datas = trailers.objects.all()
-        return render(request, 'trailer_add.html', {'form':form, 'items':datas})
+        return render(request, 'chart/trailer_add.html', {'form':form, 'items':datas})
 
 def trailerDelete(request,plate):
     delete_obj = trailers.objects.get(plate=plate)
     delete_obj.delete()
-    return redirect('trailerAdd')
+    return redirect('chart:trailerAdd')
 
 def trailerEdit(request,plate):
     change = get_object_or_404(trailers,plate=plate)
@@ -42,12 +44,12 @@ def trailerEdit(request,plate):
             print('isvaild!')
             print(form.cleaned_data)
             form.save()
-            return redirect('trailerAdd')
+            return redirect('chart:trailerAdd')
         else:
             print(form.cleaned_data)
             print('not vaild!')
-            return render(request,'trailerEdit.html',{'items' : trailers.objects.get(plate=plate)})
+            return render(request,'chart/trailerEdit.html',{'items' : trailers.objects.get(plate=plate)})
     else:
         item = trailers.objects.get(plate=plate)
-        return render(request,'trailerEdit.html',{'items' : item})
+        return render(request,'chart/trailerEdit.html',{'items' : item})
     
