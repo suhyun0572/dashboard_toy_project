@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">plate</th>
+                <th scope="col">company</th>
+                <th scope="col">locate</th>
+                <th scope="col"><span class="badge rounded-pill text-bg-light"><a href="{% url 'trailerAdd' %}" id="add_Btn">add</a></span></th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            
+            {% for item in items %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{item.plate}}</td>
+                <td>{{item.company}}</td>
+                <td>{{item.location}}</td>
+                <td><span class="badge rounded-pill text-bg-light"><a href="{% url 'trailerEdit' item.plate %}">trailerEdit</a> <span>OR</span> <a href="{% url 'trailerDelete' item.plate %}">trailerDelete</a></span></td>
+            </tr>
+            {% endfor%}
+            
+        </tbody>
+    
+    </table>
+
+
+{% endblock %}
